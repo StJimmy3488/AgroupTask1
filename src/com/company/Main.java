@@ -16,15 +16,14 @@ public class Main {
         }
         List<String> filteredWords = new ArrayList<>();
         for (String words : text) {
-            String[] sepWords = words.split("\\P{Alpha}+");
-            filteredWords.add(Arrays.toString(sepWords));
+            String sepWords = words.replaceAll("[^\\w\\s]", "");
+            filteredWords.add(sepWords.toLowerCase());
         }
         HashMap<String, Integer> uniqueWordMap = new HashMap<>();
         String[] uniqueWords = filteredWords.stream().distinct().toArray(String[]::new);
         int frequency;
         for (String uniqueWord : uniqueWords) {
             frequency = Collections.frequency(filteredWords, uniqueWord);
-//            System.out.println(uniqueWord + " - " + frequency);
             uniqueWordMap.put(uniqueWord, frequency);
         }
         Stream<Map.Entry<String, Integer>> topWordsFirst = uniqueWordMap
