@@ -11,13 +11,13 @@ public class Main {
         System.out.println(file.getName());
         List<String> text = new ArrayList<>();
         while (scanner.hasNext()) {
-            String x = scanner.next();
+            String x = scanner.next().toLowerCase();
             text.add(x);
         }
         List<String> filteredWords = new ArrayList<>();
         for (String words : text) {
-            String sepWords = words.replaceAll("[^\\w\\s]", "");
-            filteredWords.add(sepWords.toLowerCase());
+            String separatedWords = words.replaceAll("[^\\w\\s]", "");
+            filteredWords.add(separatedWords);
         }
         HashMap<String, Integer> uniqueWordMap = new HashMap<>();
         String[] uniqueWords = filteredWords.stream().distinct().toArray(String[]::new);
