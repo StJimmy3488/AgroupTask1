@@ -6,24 +6,21 @@ import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException {
-        File file = new File("C:\\Users\\karin\\Desktop\\Random Book.txt");
-        Scanner scanner = new Scanner(file);
-        System.out.println(file.getName());
+        Scanner scanner = new Scanner(new File("C:\\Users\\Ilay\\Desktop\\Random_Book.txt"));
         List<String> text = new ArrayList<>();
         while (scanner.hasNext()) {
-            String x = scanner.next().toLowerCase();
+            String x = scanner.next();
             text.add(x);
         }
         List<String> filteredWords = new ArrayList<>();
         for (String words : text) {
-            String separatedWords = words.replaceAll("[^\\w\\s]", "");
+            String separatedWords = words.replaceAll("[^\\w\\s]", "").toLowerCase();
             filteredWords.add(separatedWords);
         }
         HashMap<String, Integer> uniqueWordMap = new HashMap<>();
         String[] uniqueWords = filteredWords.stream().distinct().toArray(String[]::new);
-        int frequency;
         for (String uniqueWord : uniqueWords) {
-            frequency = Collections.frequency(filteredWords, uniqueWord);
+            int frequency = Collections.frequency(filteredWords, uniqueWord);
             uniqueWordMap.put(uniqueWord, frequency);
         }
         Stream<Map.Entry<String, Integer>> topWordsFirst = uniqueWordMap
