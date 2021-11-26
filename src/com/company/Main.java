@@ -15,8 +15,8 @@ public class Main {
         String name = sc.nextLine();
         System.out.println("Select disk to search in (ex. c, d, j): ");
         String disc = sc.nextLine();
+        System.out.println("please wait...");
         disc += ":\\\\";
-        System.out.println(disc);
         Main m = new Main();
         String path = m.fileFinder(name, new File(disc));
 
@@ -55,8 +55,6 @@ public class Main {
                 } else if (name.equalsIgnoreCase(fil.getName())) {
                     m = fil.getAbsolutePath();
                 }
-
-
             }
         }
         return m;
