@@ -15,6 +15,6 @@ Task should be done in two different ways:
   <li>NOT using Java Stream</li>
 </ul>
 
-Specificly this repository stores sulition with use of Stream.
+Specifically this repository stores a solution with use of Stream. 
 
 <h4>Ilja Vitohins</h4>
